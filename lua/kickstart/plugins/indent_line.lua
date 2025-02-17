@@ -5,5 +5,9 @@ return {
     -- See `:help ibl`
     main = 'ibl',
     opts = {},
+
+    highlight = { 'Function', 'Label' },
+    whitespace = { highlight = { 'Whitespace', 'NonText' } },
+    remove_blankline_trail = false,
   },
 }
