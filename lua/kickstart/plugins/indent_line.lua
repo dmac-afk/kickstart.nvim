@@ -8,10 +8,6 @@ return {
 
     highlight = { 'Function', 'Label' },
     whitespace = { highlight = { 'Whitespace', 'NonText' } },
-<<<<<<< HEAD
     remove_blankline_trail = true,
-=======
-    remove_blankline_trail = false,
->>>>>>> master
   },
 }

@@ -4,7 +4,6 @@
 -- See the kickstart.nvim README for more information
 
 return {
-<<<<<<< HEAD
   'nvim-tree/nvim-tree.lua',
   version = '*',
   lazy = false,
@@ -15,7 +14,5 @@ return {
     require('nvim-tree').setup {}
   end,
 
-=======
->>>>>>> master
   require('ibl').setup(),
 }
