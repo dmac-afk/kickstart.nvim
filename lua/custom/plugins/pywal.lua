@@ -8,10 +8,10 @@ return {
   end,
 
   opts = {
-    transparent = true,
-    styles = {
-      floats = 'transparent',
-      sidebars = 'transparent',
-    },
+    -- transparent = true,
+    -- styles = {
+    --   floats = 'transparent',
+    --   sidebars = 'transparent',
+    -- },
   },
 }
