@@ -3,16 +3,13 @@
 --
 -- See the kickstart.nvim README for more information
 
-return {
-  'nvim-tree/nvim-tree.lua',
-  version = '*',
-  lazy = false,
-  dependencies = {
-    'nvim-tree/nvim-web-devicons',
-  },
-  config = function()
-    require('nvim-tree').setup {}
-  end,
+-- return {
+--   require('ibl').setup(),
+-- }
 
-  require('ibl').setup(),
-}
+vim.cmd [[
+  highlight Normal guibg=NONE ctermbg=NONE
+  highlight NonText guibg=NONE ctermbg=NONE
+  highlight SpecialKey guibg=NONE ctermbg=NONE
+  highlight Whitespace guibg=NONE ctermbg=NONE
+]]
