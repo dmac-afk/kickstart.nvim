@@ -1,6 +1,6 @@
 return {
   'uZer/pywal16.nvim',
-  priority = 1000,
+  -- priority = 1000,
   -- for local dev replace with:
   -- dir = '~/your/path/pywal16.nvim',
   config = function()
