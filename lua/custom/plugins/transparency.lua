@@ -2,12 +2,6 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
--- vim.cmd [[
--- highlight Normal guibg=NONE ctermbg=NONE
--- highlight NonText guibg=NONE ctermbg=NONE
--- highlight SpecialKey guibg=NONE ctermbg=NONE
--- highlight Whitespace guibg=NONE ctermbg=NONE
--- ]]
 
 return {
   require('ibl').setup(),
