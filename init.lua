@@ -88,30 +88,30 @@ P.S. You can delete this when you're done too. It's your config now! :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
 -- ─── Options ──────────────────────────────────────────────────────────────
-require("kickstart.options")
+require 'kickstart.options'
 
 -- ─── Keymaps ──────────────────────────────────────────────────────────────
-require("kickstart.keymaps")
+require 'kickstart.keymaps'
 
 -- ─── Autocommands ────────────────────────────────────────────────────────
-require("kickstart.autocommands")
+require 'kickstart.autocommands'
 
 -- ─── Lazy.nvim bootstrap ─────────────────────────────────────────────────
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		error("Error cloning lazy.nvim:\n" .. out)
-	end
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  if vim.v.shell_error ~= 0 then
+    error('Error cloning lazy.nvim:\n' .. out)
+  end
 end
 
 ---@type vim.Option
@@ -128,59 +128,59 @@ rtp:prepend(lazypath)
 --    :Lazy update
 --
 -- NOTE: Here is where you install your plugins.
-require("lazy").setup({
-	-- ── Core / UI ──────────────────────────────────────────────────────
-	"NMAC427/guess-indent.nvim", -- Detect tabstop and shiftwidth automatically
-	require("kickstart.plugins.gitsigns"), -- Git gutter signs + keymaps
-	require("kickstart.plugins.which_key"), -- Pending keybind hints
-	require("kickstart.plugins.telescope"), -- Fuzzy finder
-	require("kickstart.plugins.treesitter"), -- Syntax highlighting & parsing
-	require("kickstart.plugins.mini"), -- mini.ai, mini.surround, mini.statusline
-	{
-		"folke/todo-comments.nvim",
-		event = "VimEnter",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = { signs = false },
-	},
+require('lazy').setup({
+  -- ── Core / UI ──────────────────────────────────────────────────────
+  'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
+  require 'kickstart.plugins.gitsigns', -- Git gutter signs + keymaps
+  require 'kickstart.plugins.which_key', -- Pending keybind hints
+  require 'kickstart.plugins.telescope', -- Fuzzy finder
+  require 'kickstart.plugins.treesitter', -- Syntax highlighting & parsing
+  require 'kickstart.plugins.mini', -- mini.ai, mini.surround, mini.statusline
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+  },
 
-	-- ── LSP & completion ───────────────────────────────────────────────
-	require("kickstart.plugins.lazydev"), -- Lua LSP helper for nvim config
-	require("kickstart.plugins.jdtls"), -- Java language support
-	require("kickstart.plugins.lsp"), -- lspconfig + mason + fidget
-	require("kickstart.plugins.completion"), -- blink.cmp + luasnip
-	require("kickstart.plugins.conform"), -- Autoformat (conform.nvim)
+  -- ── LSP & completion ───────────────────────────────────────────────
+  require 'kickstart.plugins.lazydev', -- Lua LSP helper for nvim config
+  require 'kickstart.plugins.jdtls', -- Java language support
+  require 'kickstart.plugins.lsp', -- lspconfig + mason + fidget
+  require 'kickstart.plugins.completion', -- blink.cmp + luasnip
+  require 'kickstart.plugins.conform', -- Autoformat (conform.nvim)
 
-	-- ── Kickstart extras (enable / disable as needed) ─────────────────
-	require("kickstart.plugins.debug"),
-	require("kickstart.plugins.indent_line"),
-	require("kickstart.plugins.lint"),
-	require("kickstart.plugins.autopairs"),
-	-- require 'kickstart.plugins.neo-tree',
-	-- vim.keymap.set('n', '<leader><tab>', ':Neotree position=current <CR>'),
+  -- ── Kickstart extras (enable / disable as needed) ─────────────────
+  require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.autopairs',
+  -- require 'kickstart.plugins.neo-tree',
+  -- vim.keymap.set('n', '<leader><tab>', ':Neotree position=current <CR>'),
 
-	-- ── Your own plugins ──────────────────────────────────────────────
-	--  Add your own plugins to `lua/custom/plugins/*.lua`
-	{ import = "custom.plugins" },
+  -- ── Your own plugins ──────────────────────────────────────────────
+  --  Add your own plugins to `lua/custom/plugins/*.lua`
+  { import = 'custom.plugins' },
 }, {
-	ui = {
-		-- If you are using a Nerd Font: set icons to an empty table which will use the
-		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-		icons = vim.g.have_nerd_font and {} or {
-			cmd = "⌘",
-			config = "🛠",
-			event = "📅",
-			ft = "📂",
-			init = "⚙",
-			keys = "🗝",
-			plugin = "🔌",
-			runtime = "💻",
-			require = "🌙",
-			source = "📄",
-			start = "🚀",
-			task = "📌",
-			lazy = "💤 ",
-		},
-	},
+  ui = {
+    -- If you are using a Nerd Font: set icons to an empty table which will use the
+    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+    icons = vim.g.have_nerd_font and {} or {
+      cmd = '⌘',
+      config = '🛠',
+      event = '📅',
+      ft = '📂',
+      init = '⚙',
+      keys = '🗝',
+      plugin = '🔌',
+      runtime = '💻',
+      require = '🌙',
+      source = '📄',
+      start = '🚀',
+      task = '📌',
+      lazy = '💤 ',
+    },
+  },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
